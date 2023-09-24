@@ -40,6 +40,9 @@ class AddContent extends Component {
         <ToggleButton variant="outline-secondary"  onClick={async () => {await this.setState({type: 'Project' })} } value={1}>Project</ToggleButton>
         <ToggleButton variant="outline-secondary"  onClick={ async () => {await this.setState({type: 'Paper' })} } value={2}>Paper</ToggleButton>
         <ToggleButton variant="outline-secondary"  onClick={ async () => {await this.setState({type: 'Article' })} } value={3}>Article</ToggleButton>
+        <ToggleButton variant="outline-secondary"  onClick={ async () => {await this.setState({type: 'Painting' })} } value={3}>Painting</ToggleButton>
+        <ToggleButton variant="outline-secondary"  onClick={ async () => {await this.setState({type: 'Video' })} } value={3}>Video</ToggleButton>
+        <ToggleButton variant="outline-secondary"  onClick={ async () => {await this.setState({type: 'Image' })} } value={3}>Image</ToggleButton>
       </ToggleButtonGroup>
       </Form.Group >
       <Form.Group>

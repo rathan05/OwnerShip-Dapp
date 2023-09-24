@@ -25,7 +25,10 @@ const Dashboard = ({username, allContent, projectContent, articleContent, paperC
     'All': allContent,
     'Project': projectContent,
     'Paper': paperContent,
-    'Article':articleContent
+    'Article':articleContent,
+    'Painting':paperContent,
+    'video':paperContent,
+    'Image':paperContent
 
   }
 
@@ -86,6 +89,15 @@ const Dashboard = ({username, allContent, projectContent, articleContent, paperC
         <Nav.Item>
           <Button className={active === 'Article' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(articleContent); setCurrentPage(1); setActive('Article')} } variant="outline-secondary">Articles</Button>
         </Nav.Item>
+        <Nav.Item>
+          <Button className={active === 'Painting' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(projectContent); setCurrentPage(1); setActive('Painting')} } variant="outline-secondary" >Painting</Button>
+        </Nav.Item>
+        <Nav.Item>
+          <Button className={active === 'Video' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(projectContent); setCurrentPage(1); setActive('Video')} } variant="outline-secondary" >Video</Button>
+        </Nav.Item>
+        <Nav.Item>
+          <Button className={active === 'Image' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(projectContent); setCurrentPage(1); setActive('Image')} } variant="outline-secondary" >Image</Button>
+        </Nav.Item>
           <Nav.Item className="float-right ml-auto">
           <Form className="float-right" inline>
         <FormControl type="text" onChange={onSearch} placeholder="Search" className="float-right" />
@@ -105,6 +117,9 @@ const Dashboard = ({username, allContent, projectContent, articleContent, paperC
               <Dropdown.Item className={active === 'Project' ? 'd-none' : ''} onClick={() => {setPosts(projectContent); setCurrentPage(1); setActive('Project')} }>Project</Dropdown.Item>
               <Dropdown.Item className={active === 'Paper' ? 'd-none' : ''} onClick={() => {setPosts(paperContent); setCurrentPage(1); setActive('Paper')} }>Paper</Dropdown.Item>
               <Dropdown.Item className={active === 'Article' ? 'd-none' : ''} onClick={() => {setPosts(articleContent); setCurrentPage(1); setActive('Article')} } >Article</Dropdown.Item>
+              <Dropdown.Item className={active === 'Painting' ? 'd-none' : ''} onClick={() => {setPosts(paperContent); setCurrentPage(1); setActive('Painting')} } >Painting</Dropdown.Item>
+              <Dropdown.Item className={active === 'Video' ? 'd-none' : ''} onClick={() => {setPosts(paperContent); setCurrentPage(1); setActive('Video')} } >Video</Dropdown.Item>
+              <Dropdown.Item className={active === 'Image' ? 'd-none' : ''} onClick={() => {setPosts(paperContent); setCurrentPage(1); setActive('Image')} } >Image</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           </Nav.Item>

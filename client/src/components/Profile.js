@@ -105,6 +105,15 @@ const Profile = ({ web3, userAllContent, userProjectContent, userArticleContent,
           <Button className={active === 'article' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(userArticleContent); setCurrentPage(1); setActive('article')} } variant="outline-secondary">Articles</Button>
         </Nav.Item>
         <Nav.Item>
+          <Button className={active === 'Painting' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(userPaperContent); setCurrentPage(1); setActive('Painting')} } variant="outline-secondary">Painting</Button>
+        </Nav.Item>
+        <Nav.Item>
+          <Button className={active === 'Video' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(userPaperContent); setCurrentPage(1); setActive('Video')} } variant="outline-secondary">Video</Button>
+        </Nav.Item>
+        <Nav.Item>
+          <Button className={active === 'Image' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(userPaperContent); setCurrentPage(1); setActive('Video')} } variant="outline-secondary">Image</Button>
+        </Nav.Item>
+        <Nav.Item>
           <Button className={active === 'trash' ? 'active ml-3' : 'ml-3'} onClick={() => {setPosts(userRemovedContent); setCurrentPage(1); setActive('trash')} } variant="outline-danger">Trash</Button>
         </Nav.Item>
         <Nav.Item className="float-right ml-auto">

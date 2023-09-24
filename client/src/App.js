@@ -38,10 +38,16 @@ class App extends Component {
       projectContent: [],
       articleContent: [],
       paperContent: [],
+      paintingContent: [],
+      videoContent: [],
+      imageContent: [],
       userAllContent: [],
       userProjectContent: [],
       userArticleContent: [],
       userPaperContent: [],
+      userPaintContent: [],
+      userVideoContent: [],
+      userImageContent: [],
       userRemovedContent: [],
       buffer: null,
       ipfsHash: null
@@ -92,7 +98,7 @@ class App extends Component {
 
     this.setState({ loading: true });
 
-    const web3 = new Web3("http://192.168.29.217:7545");
+    const web3 = new Web3("http://127.0.0.1:7545");
     console.log("web3 ready");
 
     this.setState({ web3, loading: false });
@@ -136,7 +142,7 @@ class App extends Component {
   loadContent = async () => {
 
     this.setState({ loading: true });
-    this.setState({ totalContent: [], allContent: [], projectContent:[], paperContent:[], articleContent:[] });
+    this.setState({ totalContent: [], allContent: [], projectContent:[], paperContent:[], articleContent:[],paintingContent:[],videoContent:[],imageContent:[] });
 
     const { contract } = this.state;
 
@@ -161,13 +167,19 @@ class App extends Component {
         this.state.articleContent.push(content);
       }else if (content.contentType === 'Paper') {
         this.state.paperContent.push(content);
+      }else if (content.contentType === 'Painting') {
+        this.state.paperContent.push(content);
+      }else if (content.contentType === 'Video') {
+        this.state.paperContent.push(content);
+      }else if (content.contentType === 'Image') {
+        this.state.paperContent.push(content);
       }
 
     }
 
     if(this.state.userAccount!=null){
 
-      this.setState({ userRemovedContent: [], userAllContent: [], userPaperContent:[], userProjectContent:[], userArticleContent:[] });
+      this.setState({ userRemovedContent: [], userAllContent: [], userPaperContent:[], userProjectContent:[], userArticleContent:[],userPaintContent:[],userVideoContent:[],userImageContent:[] });
       this.loadCreatorProfile();
 
     }
@@ -197,6 +209,12 @@ class App extends Component {
       }else if (this.state.totalContent[allId].contentType === 'Article') {
         this.state.userArticleContent.push(this.state.totalContent[allId]);
       }else if (this.state.totalContent[allId].contentType === 'Paper') {
+        this.state.userPaperContent.push(this.state.totalContent[allId]);
+      }else if (this.state.totalContent[allId].contentType === 'Painting') {
+        this.state.userPaperContent.push(this.state.totalContent[allId]);
+      }else if (this.state.totalContent[allId].contentType === 'Video') {
+        this.state.userPaperContent.push(this.state.totalContent[allId]);
+      }else if (this.state.totalContent[allId].contentType === 'Image') {
         this.state.userPaperContent.push(this.state.totalContent[allId]);
       }
     }
@@ -302,7 +320,7 @@ class App extends Component {
       this.setState({ web3: null });
       await this.loadWeb3();
 
-      this.setState({creatorProfile:[], userAllContent: [], userProjectContent: [], userArticleContent: [], userPaperContent: [], userRemovedContent: [] });
+      this.setState({creatorProfile:[], userAllContent: [], userProjectContent: [], userArticleContent: [], userPaperContent: [],userPaintContent:[],userVideoContent:[],userImageContent:[] ,userRemovedContent: [] });
 
       this.setState({ loading: false });
 
@@ -444,6 +462,9 @@ class App extends Component {
               articleContent={this.state.articleContent}
               projectContent={this.state.projectContent}
               paperContent={this.state.paperContent}
+              paintingContent={this.state.paintingContent}
+              videoContent={this.state.videoContent}
+              imageContent={this.state.imageContent}
               username={this.state.username}
               isLogged = {this.state.isLogged}
               />
@@ -452,6 +473,9 @@ class App extends Component {
               articleContent={this.state.articleContent}
               projectContent={this.state.projectContent}
               paperContent={this.state.paperContent}
+              paintingContent={this.state.paintingContent}
+              videoContent={this.state.videoContent}
+              imageContent={this.state.imageContent}
               isLogged = {this.state.isLogged}
               />
         )}/>
@@ -470,6 +494,9 @@ class App extends Component {
           userArticleContent={this.state.userArticleContent}
           userProjectContent={this.state.userProjectContent}
           userPaperContent={this.state.userPaperContent}
+          userPaintContent={this.state.userPaintContent}
+          userVideoContent={this.state.userVideoContent}
+          userImageContent={this.state.userImageContent}
           isLogged = {this.state.isLogged}/>}
         />
         <Route path = "/content/:id" exact render={({match, props, history}) => <Content

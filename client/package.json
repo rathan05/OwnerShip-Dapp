@@ -7,6 +7,7 @@
     "bootstrap-icons": "^1.4.0",
     "fuse.js": "^6.4.6",
     "ipfs-api": "^17.5.0",
+    "postcss-safe-parser": "^6.0.0",
     "react": "16.11.0",
     "react-bootstrap": "^1.5.2",
     "react-bootstrap-icons": "^1.4.0",
@@ -37,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2"
   }
 }

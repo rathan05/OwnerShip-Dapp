@@ -6,7 +6,7 @@ import Pager from "./Pager";
 import Paginate from "./Paginate";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Home = ({ allContent, projectContent, articleContent, paperContent }) => {
+const Home = ({ allContent, projectContent, articleContent, paperContent,paintingContent,videoContent,imageContent }) => {
   const [posts, setPosts] = useState(allContent);
   const [currentPage, setCurrentPage] = useState(1);
   const [active, setActive] = useState('All');
@@ -24,7 +24,11 @@ const Home = ({ allContent, projectContent, articleContent, paperContent }) => {
     'All': allContent,
     'Project': projectContent,
     'Paper': paperContent,
-    'Article':articleContent
+    'Article':articleContent,
+    'Painting':paintingContent,
+    'Video':videoContent,
+    'Image':imageContent
+    
 
   }
 
@@ -76,6 +80,15 @@ const Home = ({ allContent, projectContent, articleContent, paperContent }) => {
           <Nav.Item>
             <Button className={active === 'Article' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(articleContent); setCurrentPage(1); setActive('Article')} } variant="outline-secondary">Articles</Button>
           </Nav.Item>
+          <Nav.Item>
+            <Button className={active === 'Painting' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(paintingContent); setCurrentPage(1); setActive('Painting')} } variant="outline-secondary">Painting</Button>
+          </Nav.Item>
+          <Nav.Item>
+            <Button className={active === 'Video' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(videoContent); setCurrentPage(1); setActive('Video')} } variant="outline-secondary">Video</Button>
+          </Nav.Item>
+          <Nav.Item>
+            <Button className={active === 'Image' ? 'active mx-1' : 'mx-1'} onClick={() => {setPosts(imageContent); setCurrentPage(1); setActive('Image')} } variant="outline-secondary">Articles</Button>
+          </Nav.Item>
           <Nav.Item className="float-right ml-auto">
           <Form className="float-right" inline>
         <FormControl id="extend" type="text" onChange={onSearch} placeholder="Search" className="float-right" />
@@ -90,14 +103,17 @@ const Home = ({ allContent, projectContent, articleContent, paperContent }) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item className={active === 'All' ? 'd-none' : ''} onClick={() => {setPosts(allContent); setCurrentPage(1); setActive('All')} }>All</Dropdown.Item>
+            <Dropdown.Item className={active === 'All' ? 'd-none' : ''} onClick={() => {setPosts(allContent); setCurrentPage(1); setActive('All')} }>All</Dropdown.Item>
               <Dropdown.Item className={active === 'Project' ? 'd-none' : ''} onClick={() => {setPosts(projectContent); setCurrentPage(1); setActive('Project')} }>Project</Dropdown.Item>
               <Dropdown.Item className={active === 'Paper' ? 'd-none' : ''} onClick={() => {setPosts(paperContent); setCurrentPage(1); setActive('Paper')} }>Paper</Dropdown.Item>
               <Dropdown.Item className={active === 'Article' ? 'd-none' : ''} onClick={() => {setPosts(articleContent); setCurrentPage(1); setActive('Article')} } >Article</Dropdown.Item>
+              <Dropdown.Item className={active === 'Painting' ? 'd-none' : ''} onClick={() => {setPosts(paintingContent); setCurrentPage(1); setActive('Painting')} } >Painting</Dropdown.Item>
+              <Dropdown.Item className={active === 'Video' ? 'd-none' : ''} onClick={() => {setPosts(videoContent); setCurrentPage(1); setActive('Video')} } >Video</Dropdown.Item>
+              <Dropdown.Item className={active === 'Image' ? 'd-none' : ''} onClick={() => {setPosts(imageContent); setCurrentPage(1); setActive('Image')} } >Image</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           </Nav.Item>
-          <Nav.Item style={{width:'70%'}} className="float-right ml-auto">
+          <Nav.Item style={{width:'90%'}} className="float-right ml-auto">
           <Form  className="float-right">
         <FormControl id="extend"  type="text" onChange={onSearch} placeholder="Search" />
       </Form>
